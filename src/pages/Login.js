@@ -1,7 +1,8 @@
 'use-strict'
 import React, { useState } from 'react';
 import './Login.css';
-import api from '../services/api'
+
+import api from '../services/api';
 
 import logo from '../assets/logo.svg';
 
@@ -10,14 +11,15 @@ export default function Login({ history }) {
 
   async function handelSubmit(e) {
     e.preventDefault();
-    console.log(username)
 
     const response = await api.post('/devs', {
       username,
     });
 
-    console.log(response)
-    history.push('/main')
+    const { _id } = response.data;
+    console.log(_id)
+
+      history.push(`/dev/${_id}`);
   }
 
   return (
@@ -34,4 +36,3 @@ export default function Login({ history }) {
     </div>
   )
 }
-
