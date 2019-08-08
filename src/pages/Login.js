@@ -1,15 +1,23 @@
 'use-strict'
 import React, { useState } from 'react';
-import './Login.css'
+import './Login.css';
+import api from '../services/api'
 
 import logo from '../assets/logo.svg';
 
-export default function Login() {
+export default function Login({ history }) {
   const [username, setUsername] = useState('');
 
-  function handelSubmit(e) {
+  async function handelSubmit(e) {
     e.preventDefault();
     console.log(username)
+
+    const response = await api.post('/devs', {
+      username,
+    });
+
+    console.log(response)
+    history.push('/main')
   }
 
   return (
