@@ -1,3 +1,8 @@
+#Project Build an App - Frontend
+
+##Part of a training developed by Rocketseat.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
