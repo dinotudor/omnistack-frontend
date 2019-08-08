@@ -1,11 +1,11 @@
 'use-strict'
 import React, { useState } from 'react';
-
-import logo from '../assets/logo.svg';
 import './Login.css'
 
+import logo from '../assets/logo.svg';
+
 export default function Login() {
-  const [ username, setUsername ] = useState('');
+  const [username, setUsername] = useState('');
 
   function handelSubmit(e) {
     e.preventDefault();
