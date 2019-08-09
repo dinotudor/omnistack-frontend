@@ -34,9 +34,6 @@ export default function Main({ match }) {
     setUsers(users.filter(user => user._id !== id ));
   }
 
-
-
-
   async function handleDislike(id) {
     await api.post(`/devs/${id}/dislikes`, null, {
       headers: { user: match.params.id }
