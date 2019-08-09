@@ -1,13 +1,28 @@
 'use-strict';
-import React from "react";
+import React, { useEffect } from "react";
 import './Main.css';
+
+import api from './../services/api';
 
 import logo from '../assets/logo.svg';
 import like from '../assets/like.svg';
 import disLike from '../assets/dislike.svg';
 
 
-export default function main({ match }) {
+export default function Main({ match }) {
+  useEffect(() => {
+    async function loadUsers(){
+      const response = await api.get('/devs', {
+        headers: {
+          user: match.params.id,
+        }
+       })
+
+       console.log('USERS',response.data)
+    }
+    loadUsers();
+  }, [match.params.id]);
+
   return <div className="main-container">
     <img src={logo} alt="logo" />
     <ul>
