@@ -10,10 +10,12 @@ import api from './../services/api';
 import logo from '../assets/logo.svg';
 import like from '../assets/like.svg';
 import disLike from '../assets/dislike.svg';
+import itsamatch from './../assets/itsamatch.png';
 
 
 export default function Main({ match }) {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
+  const [matchDev, setMatchDev] = useState(true)
 
   useEffect(() => {
     async function loadUsers(){
@@ -80,6 +82,17 @@ export default function Main({ match }) {
       ) : (
         <div className="empty">Acabou : (</div>
       ) }
+
+      { matchDev && (
+        <div className="match-container">
+          <img src={itsamatch} alt=""/>
+          <img className="avatar" src="https://avatars2.githubusercontent.com/u/31296766?v=4" alt=""/>
+          <strong>Dino Tudor</strong>
+          <p>Bio</p>
+          <button type="button">Fechar</button>
+        </div>
+      ) }
+
   </div>
   )
 }
